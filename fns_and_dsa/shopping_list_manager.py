@@ -5,40 +5,40 @@ def display_menu():
     print("3. View List")
     print("4. Exit")
 
+
 def main():
-    shopping_list = []  # array to store shopping items
+    shopping_list = []
     while True:
-        display_menu()  # call the display_menu function
+        display_menu()
         try:
-            choice = int(input("Enter your choice: "))  # input as a number
+            choice = int(input("Enter your choice: "))   # 👈 must be int
         except ValueError:
-            print("Invalid input. Please enter a number between 1 and 4.")
+            print("Invalid input. Please enter a number (1-4).")
             continue
 
         if choice == 1:
-            item = input("Enter item to add: ")
+            item = input("Enter the item to add: ")  # 👈 must match exactly
             shopping_list.append(item)
-            print(f"{item} added to shopping list.")
         elif choice == 2:
-            item = input("Enter item to remove: ")
+            item = input("Enter the item to remove: ")  # 👈 must match exactly
             if item in shopping_list:
                 shopping_list.remove(item)
-                print(f"{item} removed from shopping list.")
             else:
-                print(f"{item} not found in shopping list.")
+                print("Item not found in the list.")
         elif choice == 3:
+            print("\nYour Shopping List:")
             if shopping_list:
-                print("\n🛒 Your Shopping List:")
-                for i, item in enumerate(shopping_list, start=1):
-                    print(f"{i}. {item}")
-                print()
+                for idx, item in enumerate(shopping_list, start=1):
+                    print(f"{idx}. {item}")
             else:
                 print("Your shopping list is empty.")
         elif choice == 4:
             print("Goodbye!")
             break
         else:
-            print("Invalid choice. Please enter 1-4.")
+            print("Invalid choice. Please try again.")
+
 
 if __name__ == "__main__":
     main()
+
