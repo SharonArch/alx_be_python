@@ -1,3 +1,10 @@
+from robust_division_calculator import safe_divide
+
+if __name__ == "__main__":
+    x = input("Enter numerator: ")
+    y = input("Enter denominator: ")
+    result = safe_divide(x, y)
+    print("Result:", result)
 import sys
 from robust_division_calculator import safe_divide
 
